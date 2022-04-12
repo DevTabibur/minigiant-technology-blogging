@@ -22,9 +22,6 @@ const Header = () => {
                 <Link className="navbar-menu-link" to="/posts">
                   POSTS
                 </Link>
-                <Link className="navbar-menu-link" to="/pages">
-                  PAGES
-                </Link>
                 <Link className="navbar-menu-link" to="/features">
                   FEATURES
                 </Link>
