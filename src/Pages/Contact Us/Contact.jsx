@@ -18,10 +18,12 @@ const Contact = () => {
             <Col>
                 <div className="title-section text-center mb-5">
                     <h2 className="main-title">Contact Us</h2>
-                    
+
                     <p className="sub-title">These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted.</p>
                 </div>
                 <div className="contact-form-div">
+                <h3>Form should be form validation react hook form</h3>
+                <p>Follow::  https://form-validation-react-hook-form.netlify.app/</p>
                     <form></form>
                 </div>
             </Col>
