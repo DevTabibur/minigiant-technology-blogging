@@ -6,3 +6,5 @@
 2. React Bootstrap
 3. React Router
 4. Firebase
+5. React Icons
+6. Google Font (MontSerrat)
