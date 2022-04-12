@@ -25,7 +25,8 @@ const HeaderTop = () => {
                     <Col className='header-top-right d-flex align-items-center justify-content-end'>
                     <div className='header-social'>
                             <span className=''><FiSearch className='header-icon'/></span>
-                            <span className=''><CgProfile className='header-icon'/></span>
+                            <span className=''><CgProfile className='header-icon profile-icon'/>
+                            </span>
                         </div>
                     </Col>
 

@@ -6,7 +6,7 @@
 .header-top .header-top-left .header-social{}
 .header-social .header-icon {
     margin-right: 17px;
-    font-size: 18px;
+    font-size: 20px;
     color: #404040;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
@@ -20,3 +20,7 @@
     letter-spacing: 1.8px;
 }
 .header-top .header-top-right{}
+
+.header-top .header-top-right .header-social .profile-icon{
+    transition: .4s;
+}
