@@ -2,6 +2,8 @@
     box-shadow: 0 4px 2px -3px rgba(117, 117, 117, 0.756);
 }
 .navbar-menu-link{
+    background: none;
+    border: none;
     text-decoration: none;
     color: #535353;
     margin: 13px 0px 15px;

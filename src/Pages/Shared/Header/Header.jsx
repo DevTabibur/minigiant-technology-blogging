@@ -13,13 +13,15 @@ const Header = () => {
   console.log(currentUser);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setCurrentUser(user);
       } else {
         setCurrentUser({});
       }
     });
+
+    return () => unsubscribe;
   }, []);
 
   const logOut = (e) => {
