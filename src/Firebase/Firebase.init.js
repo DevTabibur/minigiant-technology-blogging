@@ -1,18 +1,18 @@
 
 import { initializeApp } from "firebase/app";
-import {getAuth}  from 'firebase/auth';
+import {getAuth} from 'firebase/auth';
 
-
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAJaYmda93PFbrGZ8kZuHuSXhDUTDh-wEE",
-  authDomain: "minigiant-77d45.firebaseapp.com",
-  projectId: "minigiant-77d45",
-  storageBucket: "minigiant-77d45.appspot.com",
-  messagingSenderId: "180895500543",
-  appId: "1:180895500543:web:738294dde4c540619f64ca"
+  apiKey: "AIzaSyBeDitF4IuucwqECKpl9mh3ycUt1xm-IzQ",
+  authDomain: "mini-giant.firebaseapp.com",
+  projectId: "mini-giant",
+  storageBucket: "mini-giant.appspot.com",
+  messagingSenderId: "1085942493587",
+  appId: "1:1085942493587:web:aa3801617ba07243673866"
 };
 
-
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 export default auth;

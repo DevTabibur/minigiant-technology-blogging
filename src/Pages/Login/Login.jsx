@@ -1,9 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./Login.css";
-import GoogleLogo from '../../Assets/Images/google.svg';
+import GoogleLogo from "../../Assets/Images/google.svg";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  getAuth,
+  signOut,
+} from "firebase/auth";
+import auth from "../../Firebase/Firebase.init.js";
+import { useNavigate } from "react-router-dom";
+
+const provider = new GoogleAuthProvider();
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const GoogleAuth = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log(errorMessage);
+      });
+  };
+  // const logOut = (e) =>{
+  //   signOut(auth).then(() => {
+  //     // Sign-out successful.
+  //   }).catch((error) => {
+  //     // An error happened.
+  //   });
+  // }
+
+  const emailBlur = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const passwordBlur = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="login-page">
       <Container>
@@ -14,20 +66,32 @@ const Login = () => {
             <div className="login-form-div">
               <h2 className="form-title py-3">Login</h2>
 
-              <form>
+              <form onSubmit={handleFormSubmit}>
                 <div className="input-group">
                   <label htmlFor="email">Email</label>
                   <div className="input-wrapper">
-                    <input type="text" name="email" id="email" />
+                    <input
+                      onBlur={emailBlur}
+                      type="text"
+                      name="email"
+                      id="email"
+                    />
                   </div>
                 </div>
                 <div className="input-group">
                   <label htmlFor="password">Password</label>
                   <div className="input-wrapper">
-                    <input type="text" name="password" id="password" />
+                    <input
+                      onBlur={passwordBlur}
+                      type="password"
+                      name="password"
+                      id="password"
+                    />
                   </div>
                 </div>
-                <button className="auth-form-submit">LOGIN</button>
+                <button type="submit" className="auth-form-submit">
+                  LOGIN
+                </button>
               </form>
               <p className="redirect">
                 New to Tech MiniGiants? <span>Create New Account</span>
@@ -38,7 +102,7 @@ const Login = () => {
                 <div className="line-right" />
               </div>
               <div className="input-wrapper">
-                <button className="google-auth">
+                <button onClick={GoogleAuth} className="google-auth">
                   <img src={GoogleLogo} alt="" />
                   <p> Continue with Google </p>
                 </button>
