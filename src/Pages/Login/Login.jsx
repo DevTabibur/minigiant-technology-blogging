@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   getAuth,
   signOut,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 import auth from "../../Firebase/Firebase.init.js";
 import { useNavigate } from "react-router-dom";
@@ -54,6 +55,18 @@ const Login = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        navigate("/");
+
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
   };
 
   return (
@@ -94,7 +107,7 @@ const Login = () => {
                 </button>
               </form>
               <p className="redirect">
-                New to Tech MiniGiants? <span>Create New Account</span>
+                New to MiniGiants Blog? <span>Create New Account</span>
               </p>
               <div className="horizontal-divider">
                 <div className="line-left" />
