@@ -8,3 +8,4 @@
 4. Firebase
 5. React Icons
 6. Google Font (MontSerrat)
+7. Swiper js
